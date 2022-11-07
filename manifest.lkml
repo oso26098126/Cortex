@@ -1,5 +1,5 @@
 constant: CONNECTION_NAME {
-  value: "lucias-sap-bq"
+  value: "cortex2022"
   export: override_required
 }
 
@@ -9,7 +9,7 @@ constant: GCP_PROJECT {
 }
 
 constant: REPORTING_DATASET {
-  value: "EON_CORTEX_REPORTING"
+  value: "Cortex_REP_2022"
   export: override_required
 }
 
