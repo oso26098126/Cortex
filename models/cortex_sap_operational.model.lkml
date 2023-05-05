@@ -61,6 +61,21 @@ explore: materials_valuation_v2 {
 }
 
 
+explore: inventory_by_plant {
+  sql_always_where: ${inventory_by_plant.client_mandt} ="@{CLIENT}"
+        and ${language_map.looker_locale}='es_ES'
+    ;;
+
+    join: language_map {
+      fields: []
+      type: left_outer
+      sql_on: ${inventory_by_plant.language_spras} = ${language_map.language_key} ;;
+      relationship: many_to_one
+    }
+  }
+
+
+
 explore: vendor_performance {
   sql_always_where: ${vendor_performance.client_mandt} = "@{CLIENT}"
     and ${language_map.looker_locale}='es_ES'
@@ -82,5 +97,26 @@ explore: vendor_performance {
           and ${vendor_performance.month_year} = ${materials_valuation_v2.month_year}
           and ${materials_valuation_v2.valuation_type_bwtar} = ''
           ;;
+  }
+}
+
+explore: inventory_metrics_overview {
+  sql_always_where: ${inventory_metrics_overview.client_mandt} = "@{CLIENT}"
+    and ${language_map.looker_locale}='es_ES';;
+
+  join: inventory_by_plant {
+    type: left_outer
+    relationship: many_to_one
+    fields: [inventory_by_plant.stock_characteristic]
+    sql_on: ${inventory_by_plant.client_mandt} = ${inventory_metrics_overview.client_mandt}
+      and ${inventory_by_plant.company_code_bukrs} = ${inventory_metrics_overview.company_code_bukrs}
+    ;;
+  }
+
+  join: language_map {
+    fields: []
+    type: left_outer
+    sql_on: ${inventory_metrics_overview.language_spras} = ${language_map.language_key} ;;
+    relationship: many_to_one
   }
 }
