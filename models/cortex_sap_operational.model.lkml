@@ -62,7 +62,7 @@ explore: materials_valuation_v2 {
 
 
 explore: vendor_performance {
-  sql_always_where: ${vendor_performance.client_mandt} = "@{CLIENT}"'
+  sql_always_where: ${vendor_performance.client_mandt} = "@{CLIENT}"
     and ${language_map.looker_locale}='es_ES'
     ;;
 
