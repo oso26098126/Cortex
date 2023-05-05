@@ -38,3 +38,49 @@ explore:  data_intelligence_otc{
 explore: Navigation_Bar {}
 
 
+explore: accounts_payable_v2 {
+
+  sql_always_where: ${accounts_payable_v2.client_mandt} =  "@{CLIENT}";;
+}
+
+explore: days_payable_outstanding_v2 {
+  sql_always_where: ${client_mandt} = "@{CLIENT}" ;;
+}
+
+explore: accounts_payable_turnover_v2 {
+
+  sql_always_where: ${accounts_payable_turnover_v2.client_mandt} = "@{CLIENT}" ;;
+}
+
+explore: cash_discount_utilization {
+  sql_always_where: ${client_mandt} = "@{CLIENT}";;
+}
+
+explore: materials_valuation_v2 {
+  sql_always_where: ${client_mandt} =  "@{CLIENT}" ;;
+}
+
+
+explore: vendor_performance {
+  sql_always_where: ${vendor_performance.client_mandt} = "@{CLIENT}"'
+    and ${language_map.looker_locale}='es_ES'
+    ;;
+
+  join: language_map {
+    fields: []
+    type: left_outer
+    sql_on: ${vendor_performance.language_key} = ${language_map.language_key} ;;
+    relationship: many_to_one
+  }
+
+  join: materials_valuation_v2 {
+    type: left_outer
+    relationship: many_to_one
+    sql_on: ${vendor_performance.client_mandt} = ${materials_valuation_v2.client_mandt}
+          and ${vendor_performance.material_number} = ${materials_valuation_v2.material_number_matnr}
+          and ${vendor_performance.plant} = ${materials_valuation_v2.valuation_area_bwkey}
+          and ${vendor_performance.month_year} = ${materials_valuation_v2.month_year}
+          and ${materials_valuation_v2.valuation_type_bwtar} = ''
+          ;;
+  }
+}
