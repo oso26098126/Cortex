@@ -1,4 +1,5 @@
 constant: CONNECTION_NAME {
+ #value: "cortex_pru"
   value: "cortex2022"
   export: override_required
 }
@@ -9,7 +10,8 @@ constant: GCP_PROJECT {
 }
 
 constant: REPORTING_DATASET {
-  value: "reporting_ecc_mx"
+ # value: "reporting_ecc_mx"
+   value: "reporting_s4h_finanzas_mx"
   export: override_required
 }
 
