@@ -98,6 +98,8 @@ explore: vendor_performance {
           and ${materials_valuation_v2.valuation_type_bwtar} = ''
           ;;
   }
+
+
 }
 
 explore: inventory_metrics_overview {
