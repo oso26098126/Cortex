@@ -28,6 +28,10 @@ view: data_intelligence_ar {
       label: "JPY"
       value: "JPY"
     }
+    allowed_value: {
+      label: "MXN"
+      value: "MXN"
+    }
   }
 
   parameter: Day_Sales_Outstanding {

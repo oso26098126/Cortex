@@ -667,6 +667,7 @@ view: accounts_payable_v2 {
 
   dimension: target_currency_tcurr {
     type: string
+   # sql: IFNULL(${TABLE}.TargetCurrency_TCURR,'NA') ;;
     sql: ${TABLE}.TargetCurrency_TCURR ;;
   }
 
