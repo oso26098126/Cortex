@@ -523,6 +523,7 @@ view: data_intelligence_ar {
   measure: Total_Receivables{
     type: sum
     sql: ${Accounts_Receivable_Global_Currency} ;;
+    #value_format_name: Greek_Number_Format
     html: <a href="#drillmenu" target="_self">
     {% if value < 0 %}
     {% assign abs_value = value | times: -1.0 %}
