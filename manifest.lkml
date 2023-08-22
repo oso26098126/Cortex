@@ -5,7 +5,7 @@ constant: CONNECTION_NAME {
 }
 
 constant: GCP_PROJECT {
-  value: "psa-sga-dfn-dv"
+  value: "psa-sga-dfn-pr"
   export: override_required
 }
 
