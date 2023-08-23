@@ -12,8 +12,12 @@ constant: GCP_PROJECT {
 constant: REPORTING_DATASET {
  # value: "reporting_ecc_mx"
    value: "reporting_s4h_finanzas_mx"
+
   export: override_required
 }
+
+
+
 
 constant: CLIENT {
   value: "310"
